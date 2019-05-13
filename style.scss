@@ -1,0 +1,113 @@
+$title-font: normal 24px/1.5 'Open Sans', sans-serif;
+$cool-red: #F44336;
+$box-shadow-bottom-only: 0 2px 1px 0 rgba(0, 0, 0, 0.2);
+$text-shadow: 0 0 3px #ededed, 0 0 5px #e9e9e9;
+
+@mixin transition-ripple() {
+  $value: background 0s;
+  transition: $value;
+  -moz-transition: $value;
+  -webkit-transition: $value;
+  -o-transition: $value;
+}
+@mixin radial-gradient($color) {
+  background: $color radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+  background: $color -moz-radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+  background: $color -webkit-radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+  background: $color -o-radial-gradient(circle, transparent 1%, $color 1%) center/15000%;
+}
+@mixin box-shadow-size-n($size) {
+  box-shadow: 0px 0px $size 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0px 0px $size 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0px 0px $size 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+  -o-box-shadow: 0px 0px $size 0px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.12);
+}
+.middle-align {
+  vertical-align: middle;
+}
+body {
+  font: small/1.5 Arial,Helvetica,sans-serif;
+}
+ul {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+ul li {
+  padding: 10px 13px;
+}
+ul li svg {
+  fill: #787878;
+  margin-right: 20px;
+  @extend .middle-align;
+}
+ul li span {
+  @extend .middle-align;
+}
+/* Ripple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  cursor: pointer;
+  @include radial-gradient(#e1e1e1);
+}
+.ripple:active {
+  background-color: #d9d9d9;
+  background-size: 100%;
+  @include transition-ripple;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+
+
+.menu_container {
+  width: 300px;
+  @include box-shadow-size-n(1px);
+}
+.section_container {
+  @include box-shadow-size-n(3px);
+  width: 550px;
+}
+.section_head {
+  background: #ebebeb;
+  padding: 10px;
+  font-size: 16px;
+  color: #8a8a8a;
+  text-shadow: $text-shadow;
+}
+.section_body {
+  padding: 0 20px;
+  padding-bottom: 40px;
+}
+.section_body span.tag {
+  background: #e9e9e9;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+.direction {
+  float: right;
+  margin-right: 12px;
+}
+.direction svg {
+  width: 20px;
+}
+.dr-right {
+  margin-left: -12px;
+}
+.line {
+  border-top: 1px solid #efefef;
+}
